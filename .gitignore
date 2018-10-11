@@ -2,4 +2,8 @@ build/
 dist/
 main.spec
 __pycache__/
+test.py
+video-dwon.py
+index.js
+index.py
 
