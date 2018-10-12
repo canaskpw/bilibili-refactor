@@ -3,7 +3,8 @@ dist/
 main.spec
 __pycache__/
 test.py
-video-dwon.py
+video-down.py
 index.js
 index.py
+read.py
 
