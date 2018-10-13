@@ -247,12 +247,15 @@ class Workjiexi(QThread):
             else:
                 url = os.popen('./node index_av.js %s'%cid).read().strip()
         respond2 = requests.get(url,headers=headers).json() 
-        if respond2["code"]== "-404":
-            print(url)
+        
+        # if respond2["code"]== "-404":
+            # print(url)
+
+        print(respond2)
         time =str(sum([int(i['length']) for i in respond2['durl']])//60000) +":"+str(int((sum([int(i['length']) for i in respond2['durl']])%60000)//1000))
         size =round (sum([int(i['size']) for i in respond2['durl']])/1024/1024,1)
         # for i in respond2['durl']:
-        
+
         url = [i['url'] for i in respond2['durl']]
         if not title:
             result3 = [index,index]
