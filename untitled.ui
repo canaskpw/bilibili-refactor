@@ -32,11 +32,72 @@
    <string>bilibili-download</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="bilibili.qrc">
+   <iconset>
     <normaloff>:/main_ico/bilibili.ico</normaloff>:/main_ico/bilibili.ico</iconset>
   </property>
   <property name="styleSheet">
-   <string notr="true">border-image: url(:/main_ico/background.jpg);</string>
+   <string notr="true">QWidget{border-image: url(img/background.jpg);}
+QWidget::section{border-image:none}
+QPushButton{border-image:none;
+border:1px solid rgb(255, 255, 255);
+background-color:rgba(100, 100, 100,0.5);
+color:white;
+border-radius:10px;
+font: 17pt &quot;幼圆&quot;;
+}
+QPushButton::hover{background:red}
+QLineEdit{
+border-color: rgb(255, 255, 255);
+border-image:none;
+background-color:rgba(0, 0, 0,0.2);
+border:1px solid rgb(255, 255, 255);
+font: 10pt &quot;幼圆&quot;;
+color:white;
+selection-background-color: rgba(0, 0, 0,0.5);
+border-radius:10px;
+}
+QCheckBox{border-image:none;}
+QTableWidget{
+border-image: none;
+background-color:rgba(0, 0, 0,0.3);
+font: 10pt &quot;幼圆&quot;;
+selection-background-color: rgba(0, 0, 0,0.5);
+selection-color: rgb(255, 255, 255);
+gridline-color: white;
+color:white;
+border-radius:10px;}
+QHeaderView{background:rgba(0,0,0,0.1);color:white; padding-left:4px; border:1px solid white; border-image: none;}
+QHeaderView::section{background:rgba(0,0,0,0.1); padding-left:4px; border:1px solid white; border-image: none;}
+QProgressBar{
+border-image: none;
+background:rgba(0,0,0,0.5);
+border-radius:10px;
+color:white;
+}
+QProgressBar::chunk{
+color:white;
+border-image: none;
+background:rgba(0,255,0,0.3);
+border-radius:10px;
+}
+QScrollBar{
+background:grey;
+border-image:none; 
+padding-top:20px;
+padding-bottom:20px;
+padding-left:3px;
+padding-right:3px;
+}
+QScrollBar::handle{
+background:rgba(0,0,0,0.3);
+border-radius:6px;
+min-height:60px;}
+QScrollBar::handle:vertical:hover{ 
+background:rgba(0,0,0,0.3);}
+QScrollBar::add-line:vertical{
+background:rgba(0,0,0,0.3);}
+QScrollBar::sub-line:vertical{
+background:rgba(0,0,0,0.3);;}</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <property name="maximumSize">
@@ -70,15 +131,7 @@
      <bool>false</bool>
     </property>
     <property name="styleSheet">
-     <string notr="true">border-image: None;
-background-color:rgba(0, 0, 0,0.3);
-font: 10pt &quot;幼圆&quot;;
-
-selection-background-color: rgba(0, 0, 0,0.5);
-selection-color: rgb(255, 255, 255);
-gridline-color: white;
-color:white;
-border-radius:10px;</string>
+     <string notr="true"/>
     </property>
     <property name="autoScroll">
      <bool>true</bool>
@@ -169,14 +222,7 @@ border-radius:10px;</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">border-color: rgb(255, 255, 255);
-border-image:none;
-background-color:rgba(0, 0, 0,0.2);
-border:1px solid rgb(255, 255, 255);
-font: 10pt &quot;幼圆&quot;;
-color:white;
-selection-background-color: rgba(0, 0, 0,0.5);
-border-radius:10px;</string>
+     <string notr="true"/>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton">
@@ -189,12 +235,7 @@ border-radius:10px;</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">border-image:none;
-border:1px solid rgb(255, 255, 255);
-background-color:rgba(100, 100, 100,0.5);
-color:white;
-border-radius:10px;
-font: 17pt &quot;幼圆&quot;;</string>
+     <string notr="true"/>
     </property>
     <property name="text">
      <string>确定</string>
@@ -225,10 +266,7 @@ font: 17pt &quot;幼圆&quot;;</string>
      <string/>
     </property>
     <property name="styleSheet">
-     <string notr="true">border-image:none;
-font: 12pt &quot;幼圆&quot;;
-color:white;
-background-color:rgba(0, 0, 0,0.2);</string>
+     <string notr="true"/>
     </property>
     <property name="text">
      <string>我全都要！</string>
@@ -244,12 +282,7 @@ background-color:rgba(0, 0, 0,0.2);</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">border-image:none;
-background-color:rgba(100, 100, 100,0.5);
-border:1px solid rgb(255, 255, 255);
-color:white;
-font: 17pt &quot;幼圆&quot;;
-border-radius:10px;</string>
+     <string notr="true"/>
     </property>
     <property name="text">
      <string>下载</string>
@@ -274,12 +307,7 @@ border-radius:10px;</string>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">border-image:none;
-border:1px solid rgb(255, 255, 255);
-background-color:rgba(255, 0, 0,0.5);
-color:white;
-border-radius:10px;
-font: 17pt &quot;幼圆&quot;;</string>
+     <string notr="true">background-color:rgba(255, 0, 0,0.5);</string>
     </property>
     <property name="text">
      <string>×</string>
@@ -295,12 +323,8 @@ font: 17pt &quot;幼圆&quot;;</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">border-image:none;
-border:1px solid rgb(255, 255, 255);
-background-color:rgba(0, 0, 255,0.5);
-color:white;
-border-radius:10px;
-font: 17pt &quot;幼圆&quot;;</string>
+     <string notr="true">background-color:rgba(0, 0, 255,0.5);
+</string>
     </property>
     <property name="text">
      <string>-</string>
@@ -308,9 +332,7 @@ font: 17pt &quot;幼圆&quot;;</string>
    </widget>
   </widget>
  </widget>
- <resources>
-  <include location="bilibili.qrc"/>
- </resources>
+ <resources/>
  <connections>
   <connection>
    <sender>pushButton</sender>

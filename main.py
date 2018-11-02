@@ -26,48 +26,6 @@ class MyMainWindow(QMainWindow, Ui_MainWindow):
         # self.show_web()
         self.setWindowFlags(Qt.FramelessWindowHint)
         self.setupUi(self)
-        self.display_table.verticalScrollBar().setStyleSheet(
-        "QScrollBar:vertical{"        #垂直滑块整体  
-          "padding-top:20px;"    #上预留位置（放置向上箭头）  
-          "padding-bottom:20px;" #下预留位置（放置向下箭头）  
-          "padding-left:3px;"    #左预留位置（美观）  
-          "padding-right:3px;"   #右预留位置（美观）  
-          "border-left:1px solid white;}"#左分割线  
-          "QScrollBar::handle:vertical{"#滑块样式  
-          "background:rgba(100,100,100,0.3);"  #滑块颜色  
-          "border-radius:6px;"   #边角圆润  
-          "min-height:60px;}"    #滑块最小高度  
-          "QScrollBar::handle:vertical:hover{"#鼠标触及滑块样式  
-          "background:rgba(0,0,0,0.3);}" #滑块颜色  
-          "QScrollBar::add-line:vertical{"#向下箭头样式  
-          "background:;}"  
-          "QScrollBar::sub-line:vertical{"#向上箭头样式  
-          "background:;}") 
-        self.display_table.horizontalScrollBar().setStyleSheet(
-        "QScrollBar:vertical{"        #垂直滑块整体  
-          "padding-top:20px;"    #上预留位置（放置向上箭头）  
-          "padding-bottom:20px;" #下预留位置（放置向下箭头）  
-          "padding-left:3px;"    #左预留位置（美观）  
-          "padding-right:3px;"   #右预留位置（美观）  
-          "border-left:1px solid white;}"#左分割线  
-          "QScrollBar::handle:vertical{"#滑块样式  
-          "background:rgba(100,100,100,0.3);"  #滑块颜色  
-          "border-radius:6px;"   #边角圆润  
-          "min-height:60px;}"    #滑块最小高度  
-          "QScrollBar::handle:vertical:hover{"#鼠标触及滑块样式  
-          "background:rgba(0,0,0,0.3);}" #滑块颜色  
-          "QScrollBar::add-line:vertical{"#向下箭头样式  
-          "background:;}"  
-          "QScrollBar::sub-line:vertical{"#向上箭头样式  
-          "background:;}")
-        self.display_table.horizontalHeader().setStyleSheet(
-            "QHeaderView::section{background:rgba(0,0,0,0.1); padding-left:4px; border:1px solid white; }"
-            # "QHeaderView::section:checked{background-color:green; }"
-            )
-        self.display_table.verticalHeader().setStyleSheet(
-            "QHeaderView::section{background:rgba(0,0,0,0.1); padding-left:4px; border:1px solid white; }"
-            # "QHeaderView::section:checked{background-color:green; }"
-            )
         self.run_dir = os.getcwd()
         self.timer = QTimer(self)
         self.timer.timeout.connect(self.input_url)
@@ -84,7 +42,6 @@ class MyMainWindow(QMainWindow, Ui_MainWindow):
         self.workdownload = Workdownload()
         self.workdownload.update.connect(self.update_progress)
         self.workdownload.para_update.connect(self.para_done)
-
         self.list_ = []
         self.title = ''
         self.m_flag=False
@@ -314,10 +271,10 @@ class Workdownload(QThread):
                 urllib.request.urlretrieve(i[1], filename=os.path.join(run_dir,self.title)+"/"+ title+"__"+str(i[0]+1)+'.flv', reporthook=self.report)
             else:
                 print('已经存在!')
-
-        self.threadLock.acquire()
-        self.hecheng(title)
-        self.threadLock.release()
+        else:
+            self.threadLock.acquire()
+            self.hecheng(title)
+            self.threadLock.release()
 
     def hecheng(self,title):
         os.chdir(self.title)
@@ -361,6 +318,7 @@ class Workdownload(QThread):
         # sys.stdout.flush()
 
 if __name__ == '__main__':
+    os.chdir(os.path.dirname(__file__))
     run_dir = os.getcwd()
     path = ''
     app = QApplication(sys.argv)

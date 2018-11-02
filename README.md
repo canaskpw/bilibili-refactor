@@ -21,6 +21,6 @@ pip3 install PyQt5 pyperclip -i https://mirrors.aliyun.com/pypi/simple/
 python3 main.py
 ```
 
-![1](./img/1.png)
-![2](./img/2.png)
+![1](./readme_img/1.png)
+![2](./readme_img/2.png)
 
