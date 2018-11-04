@@ -9,8 +9,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>915</width>
-    <height>580</height>
+    <width>1047</width>
+    <height>634</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -19,10 +19,10 @@
     <verstretch>0</verstretch>
    </sizepolicy>
   </property>
-  <property name="maximumSize">
+  <property name="minimumSize">
    <size>
-    <width>915</width>
-    <height>580</height>
+    <width>1047</width>
+    <height>634</height>
    </size>
   </property>
   <property name="focusPolicy">
@@ -38,6 +38,11 @@
   <property name="styleSheet">
    <string notr="true">QWidget{border-image: url(img/background.jpg);}
 QWidget::section{border-image:none}
+QSlider{border-image:none}
+QLabel{color:white}
+QMenu{border-image:none}
+QAction{border-image:none}
+
 QPushButton{border-image:none;
 border:1px solid rgb(255, 255, 255);
 background-color:rgba(100, 100, 100,0.5);
@@ -45,7 +50,16 @@ color:white;
 border-radius:10px;
 font: 17pt &quot;幼圆&quot;;
 }
-QPushButton::hover{background:red}
+QPushButton::hover{background:rgba(0,0,0,0.5)}
+#before_button{border-radius:40px;font:20pt;}
+#before_button:hover{font-weight:900;}
+#before_page_button{font-size:10pt}
+#next_page_button{font-size:10pt}
+#next_button{border-radius:40px;font:20pt;}
+#next_button:hover{font-weight:900}
+#fanju_button{font:10pt}
+#video_button{font:10pt}
+QFrame{border-image:none}
 QLineEdit{
 border-color: rgb(255, 255, 255);
 border-image:none;
@@ -56,7 +70,7 @@ color:white;
 selection-background-color: rgba(0, 0, 0,0.5);
 border-radius:10px;
 }
-QCheckBox{border-image:none;}
+QCheckBox{border-image:none;color:white}
 QTableWidget{
 border-image: none;
 background-color:rgba(0, 0, 0,0.3);
@@ -100,198 +114,10 @@ QScrollBar::sub-line:vertical{
 background:rgba(0,0,0,0.3);;}</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <property name="maximumSize">
-    <size>
-     <width>915</width>
-     <height>580</height>
-    </size>
-   </property>
-   <widget class="QTableWidget" name="display_table">
-    <property name="enabled">
-     <bool>true</bool>
-    </property>
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>130</y>
-      <width>881</width>
-      <height>431</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>幼圆</family>
-      <pointsize>10</pointsize>
-      <weight>50</weight>
-      <italic>false</italic>
-      <bold>false</bold>
-     </font>
-    </property>
-    <property name="autoFillBackground">
-     <bool>false</bool>
-    </property>
-    <property name="styleSheet">
-     <string notr="true"/>
-    </property>
-    <property name="autoScroll">
-     <bool>true</bool>
-    </property>
-    <property name="editTriggers">
-     <set>QAbstractItemView::NoEditTriggers</set>
-    </property>
-    <property name="alternatingRowColors">
-     <bool>false</bool>
-    </property>
-    <property name="selectionBehavior">
-     <enum>QAbstractItemView::SelectRows</enum>
-    </property>
-    <property name="showGrid">
-     <bool>false</bool>
-    </property>
-    <property name="gridStyle">
-     <enum>Qt::SolidLine</enum>
-    </property>
-    <property name="sortingEnabled">
-     <bool>false</bool>
-    </property>
-    <attribute name="horizontalHeaderVisible">
-     <bool>true</bool>
-    </attribute>
-    <attribute name="horizontalHeaderCascadingSectionResizes">
-     <bool>false</bool>
-    </attribute>
-    <attribute name="horizontalHeaderHighlightSections">
-     <bool>false</bool>
-    </attribute>
-    <attribute name="horizontalHeaderShowSortIndicator" stdset="0">
-     <bool>false</bool>
-    </attribute>
-    <attribute name="verticalHeaderVisible">
-     <bool>false</bool>
-    </attribute>
-    <attribute name="verticalHeaderDefaultSectionSize">
-     <number>37</number>
-    </attribute>
-    <attribute name="verticalHeaderHighlightSections">
-     <bool>true</bool>
-    </attribute>
-    <attribute name="verticalHeaderShowSortIndicator" stdset="0">
-     <bool>false</bool>
-    </attribute>
-    <attribute name="verticalHeaderStretchLastSection">
-     <bool>false</bool>
-    </attribute>
-    <column>
-     <property name="text">
-      <string>选择</string>
-     </property>
-    </column>
-    <column>
-     <property name="text">
-      <string>标题</string>
-     </property>
-    </column>
-    <column>
-     <property name="text">
-      <string>时长</string>
-     </property>
-    </column>
-    <column>
-     <property name="text">
-      <string>大小</string>
-     </property>
-    </column>
-    <column>
-     <property name="text">
-      <string>进度</string>
-     </property>
-    </column>
-    <column>
-     <property name="text">
-      <string>段落</string>
-     </property>
-    </column>
-   </widget>
-   <widget class="QLineEdit" name="url_edit">
-    <property name="geometry">
-     <rect>
-      <x>90</x>
-      <y>50</y>
-      <width>511</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true"/>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton">
-    <property name="geometry">
-     <rect>
-      <x>650</x>
-      <y>50</y>
-      <width>93</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true"/>
-    </property>
-    <property name="text">
-     <string>确定</string>
-    </property>
-   </widget>
-   <widget class="QCheckBox" name="all_select_check_button">
-    <property name="geometry">
-     <rect>
-      <x>-150</x>
-      <y>100</y>
-      <width>121</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>幼圆</family>
-      <pointsize>12</pointsize>
-      <weight>50</weight>
-      <italic>false</italic>
-      <bold>false</bold>
-     </font>
-    </property>
-    <property name="mouseTracking">
-     <bool>true</bool>
-    </property>
-    <property name="toolTip">
-     <string/>
-    </property>
-    <property name="styleSheet">
-     <string notr="true"/>
-    </property>
-    <property name="text">
-     <string>我全都要！</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="download_button">
-    <property name="geometry">
-     <rect>
-      <x>922</x>
-      <y>50</y>
-      <width>93</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true"/>
-    </property>
-    <property name="text">
-     <string>下载</string>
-    </property>
-   </widget>
    <widget class="QPushButton" name="close_button">
     <property name="geometry">
      <rect>
-      <x>870</x>
+      <x>1000</x>
       <y>10</y>
       <width>31</width>
       <height>31</height>
@@ -316,7 +142,7 @@ background:rgba(0,0,0,0.3);;}</string>
    <widget class="QPushButton" name="min_button">
     <property name="geometry">
      <rect>
-      <x>830</x>
+      <x>960</x>
       <y>10</y>
       <width>31</width>
       <height>31</height>
@@ -330,6 +156,550 @@ background:rgba(0,0,0,0.3);;}</string>
      <string>-</string>
     </property>
    </widget>
+   <widget class="QFrame" name="download_frame">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>790</y>
+      <width>920</width>
+      <height>590</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QTableWidget" name="display_table">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>130</y>
+       <width>881</width>
+       <height>431</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>幼圆</family>
+       <pointsize>10</pointsize>
+       <weight>50</weight>
+       <italic>false</italic>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="autoFillBackground">
+      <bool>false</bool>
+     </property>
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
+     <property name="autoScroll">
+      <bool>true</bool>
+     </property>
+     <property name="editTriggers">
+      <set>QAbstractItemView::NoEditTriggers</set>
+     </property>
+     <property name="alternatingRowColors">
+      <bool>false</bool>
+     </property>
+     <property name="selectionBehavior">
+      <enum>QAbstractItemView::SelectRows</enum>
+     </property>
+     <property name="showGrid">
+      <bool>false</bool>
+     </property>
+     <property name="gridStyle">
+      <enum>Qt::SolidLine</enum>
+     </property>
+     <property name="sortingEnabled">
+      <bool>false</bool>
+     </property>
+     <attribute name="horizontalHeaderVisible">
+      <bool>true</bool>
+     </attribute>
+     <attribute name="horizontalHeaderCascadingSectionResizes">
+      <bool>false</bool>
+     </attribute>
+     <attribute name="horizontalHeaderHighlightSections">
+      <bool>false</bool>
+     </attribute>
+     <attribute name="horizontalHeaderShowSortIndicator" stdset="0">
+      <bool>false</bool>
+     </attribute>
+     <attribute name="verticalHeaderVisible">
+      <bool>false</bool>
+     </attribute>
+     <attribute name="verticalHeaderDefaultSectionSize">
+      <number>37</number>
+     </attribute>
+     <attribute name="verticalHeaderHighlightSections">
+      <bool>true</bool>
+     </attribute>
+     <attribute name="verticalHeaderShowSortIndicator" stdset="0">
+      <bool>false</bool>
+     </attribute>
+     <attribute name="verticalHeaderStretchLastSection">
+      <bool>false</bool>
+     </attribute>
+     <column>
+      <property name="text">
+       <string>选择</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>标题</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>时长</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>大小</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>进度</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>段落</string>
+      </property>
+     </column>
+    </widget>
+    <widget class="QPushButton" name="download_button">
+     <property name="geometry">
+      <rect>
+       <x>770</x>
+       <y>20</y>
+       <width>93</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
+     <property name="text">
+      <string>下载</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton">
+     <property name="geometry">
+      <rect>
+       <x>640</x>
+       <y>20</y>
+       <width>93</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
+     <property name="text">
+      <string>确定</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="url_edit">
+     <property name="geometry">
+      <rect>
+       <x>100</x>
+       <y>20</y>
+       <width>511</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
+    </widget>
+    <widget class="QCheckBox" name="all_select_check_button">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>100</y>
+       <width>121</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>幼圆</family>
+       <pointsize>12</pointsize>
+       <weight>50</weight>
+       <italic>false</italic>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="mouseTracking">
+      <bool>true</bool>
+     </property>
+     <property name="toolTip">
+      <string/>
+     </property>
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
+     <property name="text">
+      <string>我全都要！</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QPushButton" name="before_button">
+    <property name="geometry">
+     <rect>
+      <x>-80</x>
+      <y>60</y>
+      <width>170</width>
+      <height>91</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>   &lt;</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="next_button">
+    <property name="geometry">
+     <rect>
+      <x>970</x>
+      <y>60</y>
+      <width>171</width>
+      <height>91</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+    <property name="text">
+     <string>&gt;   </string>
+    </property>
+   </widget>
+   <widget class="QFrame" name="search_frame">
+    <property name="geometry">
+     <rect>
+      <x>90</x>
+      <y>50</y>
+      <width>870</width>
+      <height>570</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QLineEdit" name="search_input">
+     <property name="geometry">
+      <rect>
+       <x>70</x>
+       <y>10</y>
+       <width>551</width>
+       <height>51</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="search_button">
+     <property name="geometry">
+      <rect>
+       <x>690</x>
+       <y>10</y>
+       <width>121</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>搜索</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="page_label">
+     <property name="geometry">
+      <rect>
+       <x>420</x>
+       <y>520</y>
+       <width>72</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>第1页</string>
+     </property>
+    </widget>
+    <widget class="QTableWidget" name="tableWidget">
+     <property name="geometry">
+      <rect>
+       <x>60</x>
+       <y>90</y>
+       <width>770</width>
+       <height>420</height>
+      </rect>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::NoFrame</enum>
+     </property>
+     <property name="midLineWidth">
+      <number>0</number>
+     </property>
+     <property name="editTriggers">
+      <set>QAbstractItemView::NoEditTriggers</set>
+     </property>
+     <property name="selectionMode">
+      <enum>QAbstractItemView::SingleSelection</enum>
+     </property>
+     <property name="selectionBehavior">
+      <enum>QAbstractItemView::SelectRows</enum>
+     </property>
+     <property name="showGrid">
+      <bool>false</bool>
+     </property>
+     <property name="gridStyle">
+      <enum>Qt::DotLine</enum>
+     </property>
+     <attribute name="horizontalHeaderVisible">
+      <bool>true</bool>
+     </attribute>
+     <attribute name="horizontalHeaderHighlightSections">
+      <bool>true</bool>
+     </attribute>
+     <attribute name="horizontalHeaderMinimumSectionSize">
+      <number>30</number>
+     </attribute>
+     <attribute name="horizontalHeaderShowSortIndicator" stdset="0">
+      <bool>false</bool>
+     </attribute>
+     <attribute name="horizontalHeaderStretchLastSection">
+      <bool>false</bool>
+     </attribute>
+     <attribute name="verticalHeaderVisible">
+      <bool>false</bool>
+     </attribute>
+     <attribute name="verticalHeaderDefaultSectionSize">
+      <number>70</number>
+     </attribute>
+     <column>
+      <property name="text">
+       <string>标题</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>简介</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>时长</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>发布日期</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>up主</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>播放量</string>
+      </property>
+     </column>
+    </widget>
+    <widget class="QPushButton" name="fanju_button">
+     <property name="geometry">
+      <rect>
+       <x>-40</x>
+       <y>160</y>
+       <width>93</width>
+       <height>28</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>    番剧</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="video_button">
+     <property name="geometry">
+      <rect>
+       <x>-40</x>
+       <y>120</y>
+       <width>93</width>
+       <height>28</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>    视频</string>
+     </property>
+    </widget>
+    <widget class="QTableWidget" name="tableWidget_2">
+     <property name="geometry">
+      <rect>
+       <x>880</x>
+       <y>90</y>
+       <width>771</width>
+       <height>421</height>
+      </rect>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::NoFrame</enum>
+     </property>
+     <property name="midLineWidth">
+      <number>0</number>
+     </property>
+     <property name="editTriggers">
+      <set>QAbstractItemView::NoEditTriggers</set>
+     </property>
+     <property name="selectionMode">
+      <enum>QAbstractItemView::SingleSelection</enum>
+     </property>
+     <property name="selectionBehavior">
+      <enum>QAbstractItemView::SelectRows</enum>
+     </property>
+     <property name="showGrid">
+      <bool>false</bool>
+     </property>
+     <property name="gridStyle">
+      <enum>Qt::DotLine</enum>
+     </property>
+     <attribute name="horizontalHeaderVisible">
+      <bool>true</bool>
+     </attribute>
+     <attribute name="horizontalHeaderHighlightSections">
+      <bool>true</bool>
+     </attribute>
+     <attribute name="horizontalHeaderMinimumSectionSize">
+      <number>30</number>
+     </attribute>
+     <attribute name="horizontalHeaderShowSortIndicator" stdset="0">
+      <bool>false</bool>
+     </attribute>
+     <attribute name="horizontalHeaderStretchLastSection">
+      <bool>false</bool>
+     </attribute>
+     <attribute name="verticalHeaderVisible">
+      <bool>false</bool>
+     </attribute>
+     <attribute name="verticalHeaderDefaultSectionSize">
+      <number>70</number>
+     </attribute>
+     <column>
+      <property name="text">
+       <string>标题</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>简介</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>发布日期</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>当前集数/总集数</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>是否完结</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>播放量</string>
+      </property>
+     </column>
+    </widget>
+    <widget class="QPushButton" name="before_page_button">
+     <property name="geometry">
+      <rect>
+       <x>260</x>
+       <y>520</y>
+       <width>93</width>
+       <height>28</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>上一页</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="next_page_button">
+     <property name="geometry">
+      <rect>
+       <x>540</x>
+       <y>520</y>
+       <width>93</width>
+       <height>28</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>下一页</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="total_page_label">
+     <property name="geometry">
+      <rect>
+       <x>420</x>
+       <y>540</y>
+       <width>72</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QFrame" name="setting_frame">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>1520</y>
+      <width>920</width>
+      <height>590</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QPushButton" name="pushButton_3">
+     <property name="geometry">
+      <rect>
+       <x>220</x>
+       <y>190</y>
+       <width>421</width>
+       <height>211</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>setting</string>
+     </property>
+    </widget>
+   </widget>
+   <zorder>download_frame</zorder>
+   <zorder>close_button</zorder>
+   <zorder>min_button</zorder>
+   <zorder>before_button</zorder>
+   <zorder>next_button</zorder>
+   <zorder>search_frame</zorder>
+   <zorder>setting_frame</zorder>
   </widget>
  </widget>
  <resources/>
@@ -341,8 +711,8 @@ background:rgba(0,0,0,0.3);;}</string>
    <slot>jiexi()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>697</x>
-     <y>90</y>
+     <x>707</x>
+     <y>840</y>
     </hint>
     <hint type="destinationlabel">
      <x>744</x>
@@ -357,8 +727,8 @@ background:rgba(0,0,0,0.3);;}</string>
    <slot>all_select()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>38</x>
-     <y>127</y>
+     <x>90</x>
+     <y>890</y>
     </hint>
     <hint type="destinationlabel">
      <x>9</x>
@@ -373,8 +743,8 @@ background:rgba(0,0,0,0.3);;}</string>
    <slot>download()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>825</x>
-     <y>90</y>
+     <x>835</x>
+     <y>840</y>
     </hint>
     <hint type="destinationlabel">
      <x>821</x>
@@ -414,6 +784,118 @@ background:rgba(0,0,0,0.3);;}</string>
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>next_button</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>next_page()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>985</x>
+     <y>107</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1007</x>
+     <y>192</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>before_button</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>before_page()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>14</x>
+     <y>66</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>15</x>
+     <y>19</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>search_button</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>start_search()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>799</x>
+     <y>98</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>750</x>
+     <y>22</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>video_button</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>view_search_video()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>122</x>
+     <y>172</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>11</x>
+     <y>175</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>fanju_button</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>view_search_fanju()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>96</x>
+     <y>230</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>13</x>
+     <y>235</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>before_page_button</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>search_before_page()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>439</x>
+     <y>584</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>42</x>
+     <y>539</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>next_page_button</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>search_next_page()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>636</x>
+     <y>579</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1001</x>
+     <y>576</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>print_cookie()</slot>
@@ -423,5 +905,14 @@ background:rgba(0,0,0,0.3);;}</string>
   <slot>conver()</slot>
   <slot>min_click()</slot>
   <slot>close_click()</slot>
+  <slot>next_page()</slot>
+  <slot>before_page()</slot>
+  <slot>start_search()</slot>
+  <slot>page_change()</slot>
+  <slot>scroll_change()</slot>
+  <slot>view_search_video()</slot>
+  <slot>view_search_fanju()</slot>
+  <slot>search_next_page()</slot>
+  <slot>search_before_page()</slot>
  </slots>
 </ui>

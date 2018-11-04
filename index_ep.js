@@ -1,7 +1,8 @@
 var resolveCid = require('bilibili-playurl');
-var g= process.argv.splice(2)[0]
-
-resolveCid(g, { season_type: 1, quality: 80 }).then(function (url) {
+var list = process.argv.splice(0)
+var cid = list[2]
+var s_id = list[3]
+resolveCid(cid, { season_type: s_id, quality: 80 }).then(function (url) {
   console.log(url);
 });
 
